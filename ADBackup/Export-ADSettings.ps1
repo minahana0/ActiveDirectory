@@ -1,13 +1,13 @@
 ﻿<#
 .SYNOPSIS
-This script performs a full backup of core Active Directory settings.
+This script performs a full Export of core Active Directory settings.
 
 .DESCRIPTION
 This PowerShell script collects and exports data for all AD users, Organizational Units (OUs), subnets, domain controllers, trusts, and Group Policy Objects (GPOs). It creates backup folders that include the domain name and a timestamp, logs actions to a transcript, and saves CSV and HTML reports for later restoration or documentation purposes.
 #>
 
 # ===============================
-# Active Directory Backup Script with Domain in Folder Name and Filenames
+# Active Directory Export Script with Domain in Folder Name and Filenames
 # ===============================
 
 $DateStamp = Get-Date -Format "yyyyMMdd_HHmmss"
@@ -70,4 +70,5 @@ Try {
 } Catch { Write-Error "Failed to export GPO report: $_" }
 
 Stop-Transcript
-Write-Host "Backup completed to $RootBackupFolder"
+Write-Host "Export completed to $RootBackupFolder"
+
